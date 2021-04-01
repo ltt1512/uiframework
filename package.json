@@ -3,16 +3,21 @@
   "displayName": "UIFramework",
   "version": "1.0.0",
   "unity": "2019.4",
-  "description": "UIFramework for unity,
+  "description": "Foundation package is a collection of utility methods, design patterns, and extensions for Unity.",
   "keywords": [
-         "ui",
-         "framework",
+         "pattern",
+         "utility",
+         "unity",
+         "stansassets"
      ],
- 
   "repository": {
       "type": "git",
       "url": "https://github.com/ltt1512/uiframework.git"
   },
   "license": "MIT",
-
+  "author": {
+          "name": "Stan's Assets",
+          "email": "stan@stansassets.com",
+          "url": "https://stansassets.com/"
+    }
 }
