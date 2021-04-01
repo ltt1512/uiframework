@@ -1,0 +1,18 @@
+{
+  "name": "uiframework",
+  "displayName": "UIFramework",
+  "version": "1.0.0",
+  "unity": "2019.4",
+  "description": "UIFramework for unity,
+  "keywords": [
+         "ui",
+         "framework",
+     ],
+ 
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/ltt1512/uiframework.git"
+  },
+  "license": "MIT",
+
+}
