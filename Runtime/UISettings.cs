@@ -25,21 +25,32 @@ namespace deVoid.UIFramework
         /// </summary>
         /// <param name="instanceAndRegisterScreens">Should the screens listed in the Settings file be instanced and registered?</param>
         /// <returns>A new UI Frame</returns>
-        public UIFrame CreateUIInstance(bool instanceAndRegisterScreens = true) {
+        public UIFrame CreateUIInstance(bool instanceAndRegisterScreens = true)
+        {
             var newUI = Instantiate(templateUIPrefab);
 
-            if (instanceAndRegisterScreens) {
-                foreach (var screen in screensToRegister) {
+            if (instanceAndRegisterScreens)
+            {
+                foreach (var screen in screensToRegister)
+                {
                     var screenInstance = Instantiate(screen);
                     var screenController = screenInstance.GetComponent<IUIScreenController>();
-
-                    if (screenController != null) {
+                    if (screenController != null)
+                    {
                         newUI.RegisterScreen(screen.name, screenController, screenInstance.transform);
-                        if (deactivateScreenGOs && screenInstance.activeSelf) {
+                        if (deactivateScreenGOs && screenInstance.activeSelf)
+                        {
                             screenInstance.SetActive(false);
                         }
+                        var rect = screenInstance.GetComponent<RectTransform>();
+                        rect.anchorMax = new Vector2(1, 1);
+                        rect.anchoredPosition3D = Vector3.zero;
+                        rect.offsetMax = Vector2.zero;
+                        rect.offsetMin = Vector2.zero;
                     }
-                    else {
+
+                    else
+                    {
                         Debug.LogError("[UIConfig] Screen doesn't contain a ScreenController! Skipping " + screen.name);
                     }
                 }
@@ -47,7 +58,8 @@ namespace deVoid.UIFramework
 
             return newUI;
         }
-        
+
+
         private void OnValidate() {
             List<GameObject> objectsToRemove = new List<GameObject>();
             for(int i = 0; i < screensToRegister.Count; i++) {
